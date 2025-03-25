@@ -1,7 +1,7 @@
 const http = require("http")  // step 1
 const port=2345; // we are give any unique number 
 
-const serverHendler =(req,res)=>{
+const serverHendler =(req,res)=>{   // showing msg on screen
     res.write(`<h1>Welcome to my server  ${port} ..</h1>`)
     res.end()
 }
