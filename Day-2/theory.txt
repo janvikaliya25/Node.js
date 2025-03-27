@@ -1,0 +1,97 @@
+step-1:npm i experss
+step-2:create file
+
+step-3
+example:
+
+const express=require("express");
+const port=2506;
+
+const app=express();               // this code create only server
+
+app.get("/",(req,res)=>{
+   res.write("Welcome to my server" +port)
+   res.end();
+})
+
+app.listen(port,(err)=>{
+// ternory opetore
+})
+
+step-4 
+run code in terminal and check that server is runnor not
+
+step-5
+add the set methode send the data in ejs file.
+add the code in index.js file
+
+example:
+app.set("view engine","ejs")
+
+step-6
+SEARCH:TEMPLETE ENGINE EJS;
+
+   1. What is EJS?
+   ANS: EJS or Embedded Javascript Templating is a templating engine used by Node.js.
+        Template engine helps to create an HTML template with minimal code.
+         Also, it can inject data into an HTML template on the client side and produce the final HTML.18
+
+   2.How to install EJS in node.js terminal?
+   ANS: npm i ejs   
+
+   3.Features of EJS:
+   ANS: Simple Syntax: Uses <% %> tags for embedding JavaScript.
+
+        Fast Performance: It compiles templates into plain JavaScript functions.
+
+        Supports Partial Views: You can break large HTML structures into smaller reusable components.
+
+        Includes Conditionals & Loops: You can use if, for, while, etc., inside templates.
+
+        Works Well with Express.js: It integrates easily with Express for rendering views.
+
+   4.Syntax of EJS?
+   ANS:<% %>   
+
+   5.Why Use EJS (Advantages)?
+   ANS: 1.Easy to Learn
+        2.Fast rendering
+        3.Supports JavaScript code
+        4.Works with Express.js
+        5.Partial Views Support
+
+
+   6.Disadvantages of EJS:
+   ANS: 1.Mixes Logic with HTML
+        2.Not Suitable for Large-Scale Frontend Applications
+        3.No Built-in Layout System
+        4.Lack of Frontend Interactivity
+        5.Security Risks (If Not Used Properly)
+        6.Not as Feature-Rich as Other Templating Engines
+
+        
+   7.When to Use EJS?
+   ANS: 1.✅ Great for Server-Side Rendering (SSR)
+        2.✅ Use it when working with Express.js
+        3.✅ Ideal for small to medium-scale projects
+        4.✅ When you want a simple, HTML-like syntax
+
+        5.🔴 Avoid it for Client-Side Rendering (Use React.js or Vue.js instead)
+        6.🔴 Not ideal for large-scale projects (Better options: React, Next.js)       
+
+
+
+step-7
+Create views folder
+Create index.ejs file in views folder (this file work like HTML)
+
+SYMBOL of ejs: <%%>
+
+<%student.map((e,i)=>{%>
+
+<%})%>
+
+note:if ejs tag start which line and end it's line like;
+<%student.map((e,i)=>{%>
+
+<%})%>
