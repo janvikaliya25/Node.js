@@ -6,6 +6,14 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>CRUD</h1>
+    <form action="/addData" method="post">
+        <input type="text" placeholder="Enter name" name="name">
+        <input type="text" placeholder="Enter surname" name="surname">
+        <input type="text" placeholder="Enter subject" name="subject">
+        <input type="text" placeholder="Enter course" name="course">
+        <button type="submit">Submit</button>
+    </form>
     <table border="2px">
         <thead>
             <tr>
@@ -14,6 +22,7 @@
                 <th>Surname</th>
                 <th>Subject</th>
                 <th>Course</th>
+                <th colspan="2">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +33,8 @@
                     <td><%=e.surname%></td>
                     <td><%=e.subject%></td>
                     <td><%=e.course%></td>
+                    <!-- <td><a href="/editData"><button>Edit</button></a></td>
+                    <td><a href="/deleteData?id=<%=e.id%/>"><button>Delete</button></a></td> -->
                 </tr>
             <%})%>
         </tbody>

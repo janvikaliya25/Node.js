@@ -95,3 +95,13 @@ note:if ejs tag start which line and end it's line like;
 <%student.map((e,i)=>{%>
 
 <%})%>
+
+
+EDIT :
+Two ways add to id in backend
+1.perms
+2.query
+
+req.body.id=students.length+1
+
+DELETE:
