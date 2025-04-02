@@ -7,7 +7,12 @@
 </head>
 <body>
     <h1>Clint side</h1>
-
+    <form action="/addData" method="post">
+        <input type="text" name="name" placeholder="Enter name">
+        <input type="text" name="surname" placeholder="Enter surname">
+        <input type="text" name="subject" placeholder="Enter subject">
+        <button type="submit">submit</button>
+    </form>
     <table border="1">
         <thead>
             <tr>
@@ -15,6 +20,7 @@
                 <th>Name</th>
                 <th>Surname</th>
                 <th>Subject</th>
+                <th colspan="2">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +30,8 @@
                     <td><%=e.name%></td>
                     <td><%=e.surname%></td>
                     <td><%=e.subject%></td>
+                    <!-- <td><a href="/editData"><button>Edit</button></a></td> -->
+                    <td><a href="/deleteData?=<%=e.id/%>"><button>Delete</button></a></td>
                 </tr>
             <%})%>
         </tbody>
