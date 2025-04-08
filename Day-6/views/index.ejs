@@ -7,7 +7,34 @@
 </head>
 <body>
     <form action="/addData" method="post">
-        <input type="text" placeholder="enter your name">
+        <input type="text" placeholder="enter your name" name="name">
+        <input type="text" placeholder="enter your surname" name="surname">
+        <input type="text" placeholder="enter city" name="city">
+        <button type="submit">submit</button>
     </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>City</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%Student.map((e,i)=>{%>
+                <tr>
+                    <td><%=e.id%></td>
+                    <td><%=e.name%></td>
+                    <td><%=e.surname%></td>
+                    <td><%=e.city%></td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+           <%})%>
+        </tbody>
+    </table>
 </body>
 </html>

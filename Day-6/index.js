@@ -1,22 +1,34 @@
 // const { urlencoded } = require("body-parser");
-let express=require("express")
+let express=require("express") // 1
 
-let port=2505;
+let port=2505; // 2
 
-let app=express();
-let db=require("./config/db")
+let app=express(); // 3
+let db=require("./config/db") // 9
+let schema=require("./model/firstSchema");  //10
 
-app.set("view engine","ejs");
-app.use(express.urlencoded({extended:true}));
+app.set("view engine","ejs"); // 6
+app.use(express.urlencoded({extended:true})); // 7
 
-app.get("/",(req,res)=>{
-    res.render("index")
+app.get("/",async(req,res)=>{ // 5
+    let Student= await schema.find({}) // 12
+    console.log(Student);
+    res.render("index",{Student})
+
+    // await schema.find({}).then((Student)=>{ // second method
+    //     res.redirect("index",{Student})
+    // })
 })
 
-app.post("/addData",(req,res)=>{
-    console.log(req.body)
+app.post("/addData",async(req,res)=>{ // 8
+    let data= await schema.create(req.body); // 11
+    data && res.redirect("/")
+
+    // await schema.create(req.body).then(()=>{ // second method
+    //     res.redirect("/")
+    // })
 })
 
-app.listen(port,(err)=>{
+app.listen(port,(err)=>{ // 4
     err?console.log(err):console.log(`Your server is created ${port}`)
 })

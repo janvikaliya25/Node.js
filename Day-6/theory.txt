@@ -28,4 +28,5 @@ some request use database
 
    module.exports=db // step-5
 
-   
+Schema:
+it is bule print which decides how data stored in mongodb/database.
