@@ -1,0 +1,32 @@
+what is middle wear function?
+ANS: In Node.js, especially within the context of the Express framework, middleware functions
+     are functions that intercept and process requests and responses, enabling tasks like logging, authentication,
+     and data validation before the request reaches the final route handler. 
+
+
+syntax:
+
+example:
+
+const middle=(req,res,next)=>{
+    req.body.name="middlewear"
+    console.log(req.body);
+    next();
+}
+ 
+ app.get("/adddata",middle,(req,res)=>{
+
+ })
+
+ create new folder : public
+ create new file style.css in public folder
+ conect for public folder file : syntax:
+ add in index.js:
+ app.use(expreess.static(path.join(__dirname,'public')));
+ 
+ add css file in ejs file with link
+
+
+ we give any more path:like,
+  app.use("public",expreess.static(path.join(__dirname,'public')));
+  when we create 2 folder or 1 to more folder then give specific folder name.
