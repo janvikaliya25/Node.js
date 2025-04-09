@@ -30,9 +30,9 @@
                     <td><%=e.name%></td>
                     <td><%=e.surname%></td>
                     <td><%=e.city%></td>
-                    <td>Edit</td>
-                    <td>Delete</td>
-                </tr>
+                    <td><a href="/editData?id=<%=e.id%>"><button>Edit</button></a></td>
+                    <td><a href="/deleteData?id=<%=e.id%>"><button>Delete</button></a></td>
+                </tr>  
            <%})%>
         </tbody>
     </table>

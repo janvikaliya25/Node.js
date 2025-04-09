@@ -30,3 +30,17 @@ some request use database
 
 Schema:
 it is bule print which decides how data stored in mongodb/database.
+
+Using methods for LocalCRUD:
+
+get data from localstore using method like find
+
+addData using camle case methodes like Create
+
+deleteData useing camale case methodes like findByIdAndDelete
+
+editData useing camale case methodes like findById
+
+editData useing camale case methodes like findByIdAndUpdate
+
+update data update with req.body.id to req.body
