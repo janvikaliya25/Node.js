@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div><li><a href="/">Home</a></li></div>
+        <nav>
+            <ul>
+                <li><a href="/addbook">Add Book</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Edit Book</h1>
+    <form action="/updateData" method="post">
+        <input type="text" placeholder="Enter Book id" name="id" hidden value="<%=data.id%>">
+        <input type="text" placeholder="Enter book Url" name="image" value="<%=data.image%>">
+        <input type="text" placeholder="Enter book name" name="name" value="<%=data.name%>">
+        <input type="text" placeholder="Enter book author" name="author" value="<%=data.author%>">
+        <input type="text" placeholder="Enter book type" name="type" value="<%=data.type%>">
+        <input type="text" placeholder="Enter book price" name="price" value="<%=data.price%>">
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
+</body>
+</html>
