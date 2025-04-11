@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Add this in your <head> -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class=" text-gray-800">
+
+    <header class="flex flex-col sm:flex-row justify-between items-center bg-white px-4 py-2 shadow-md min-h-[60px]">
+        <!-- Logo -->
+        <div class="w-40 sm:w-48">
+          <a href="/">
+            <img 
+              src="https://bookbins.b-cdn.net/wp-content/uploads/2024/04/Bookbins-2.0-Corporate-Blue-Full-Logo-600x159.png" 
+              alt="Bookbins Logo" 
+              class="w-full h-12 object-contain" />
+          </a>
+        </div>
+      
+        <!-- Navigation -->
+        <nav class="mt-2 sm:mt-0">
+          <ul class="flex space-x-4 text-gray-700 text-base font-medium">
+            <li>
+                <a
+                  href="/addbook"
+                  class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm sm:text-base hover:bg-blue-700 transition-colors duration-200 shadow-sm"
+                >
+                  Add Book
+                </a>
+              </li>              
+          </ul>
+        </nav>
+      </header>
+      
+
+    <div class="w-full">
+        <img
+          src="https://bookbins.in/wp-content/uploads/2025/02/Home-Page-Banner-Harry-Potter-Box-Set-Buy-Online-Bookbins-01.jpg"
+          alt="Harry Potter Banner"
+          class="w-full h-auto object-cover  shadow-md"
+        />
+      </div>
+      
+
+    <h1 class="text-3xl font-bold text-center mt-6 mb-4">Book Store</h1>
+  
+    <!-- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 pb-10">
+      <% book.map((el, i) => { %>
+        <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+          <div class="h-48 overflow-hidden rounded-t-2xl">
+            <img src="<%=el.image%>" alt="Book Cover" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-4 space-y-2">
+            <h3 class="text-xl font-semibold"><%=el.name%></h3>
+            <h6 class="text-sm text-gray-600">Author: <%=el.author%></h6>
+            <p class="text-sm">Type: <%=el.type%></p>
+            <p class="text-sm font-semibold">Price: ₹<%=el.price%></p>
+            <div class="flex space-x-2 mt-3">
+              <a href="/editData?id=<%=el.id%>" class="flex-1">
+                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded">Edit</button>
+              </a>
+              <a href="/deleteData?id=<%=el.id%>" class="flex-1">
+                <button class="w-full bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded">Delete</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div> -->
+
+    <!-- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 px-4 pb-10">
+        <% book.map((el, i) => { %>
+          <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+            <div class="h-48 overflow-hidden rounded-t-2xl">
+              <img src="<%=el.image%>" alt="Book Cover" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-4 space-y-2">
+              <h3 class="text-xl font-semibold"><%=el.name%></h3>
+              <h6 class="text-sm text-gray-600">Author: <%=el.author%></h6>
+              <p class="text-sm">Type: <%=el.type%></p>
+              <p class="text-sm font-semibold">Price: ₹<%=el.price%></p>
+              <div class="flex space-x-2 mt-3">
+                <a href="/editData?id=<%=el.id%>" class="flex-1">
+                  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded">Edit</button>
+                </a>
+                <a href="/deleteData?id=<%=el.id%>" class="flex-1">
+                  <button class="w-full bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded">Delete</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+       -->
+
+       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 px-4 pb-10">
+        <% book.map((el, i) => { %>
+          <div class="bg-white rounded-2xl shadow-lg shadow-gray-600 transition duration-300">
+            <!-- Image Box -->
+            <div class="h-60 overflow-hidden rounded-t-2xl">
+              <img 
+                src="<%=el.image%>" 
+                alt="Book Cover" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+      
+            <!-- Book Info -->
+            <div class="p-4 space-y-2">
+              <h3 class="text-lg font-semibold"><%=el.name%></h3>
+              <h6 class="text-sm text-gray-600">Author: <%=el.author%></h6>
+              <p class="text-sm">Type: <%=el.type%></p>
+              <p class="text-sm font-semibold">Price: ₹<%=el.price%></p>
+      
+              <!-- Buttons -->
+              <div class="flex space-x-2 mt-3">
+                <a href="/editData?id=<%=el.id%>" class="flex-1">
+                  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-1.5 rounded-md text-sm">Edit</button>
+                </a>
+                <a href="/deleteData?id=<%=el.id%>" class="flex-1">
+                  <button class="w-full bg-red-600 hover:bg-red-700 text-white py-1.5 rounded-md text-sm">Delete</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+      
+  </body>  
+</html>

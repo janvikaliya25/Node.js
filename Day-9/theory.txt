@@ -1,0 +1,46 @@
+what is Database?
+
+type of database?
+sql
+non sql
+
+we where use mongodb?
+step-1  : mongodb compass
+setp-2  : mongo id commiti
+
+atlas 
+
+
+some request use database
+1.create folder of config
+2.create file bd/database.js
+3.npm i mongoose
+4.go to db file
+   
+   let mongoose=require("mongoose"); // step-1
+   mongoose.connec("mongodb://127.0.0.1/node5t06"); // step-2
+
+   let db=mongoose.connection; // step-3
+
+   db.once("open",(err)=>{ // step-4
+    err?log(err):log("data base connected ");
+   })
+
+   module.exports=db // step-5
+
+Schema:
+it is bule print which decides how data stored in mongodb/database.
+
+Using methods for LocalCRUD:
+
+get data from localstore using method like find
+
+addData using camle case methodes like Create
+
+deleteData useing camale case methodes like findByIdAndDelete
+
+editData useing camale case methodes like findById
+
+editData useing camale case methodes like findByIdAndUpdate
+
+update data update with req.body.id to req.body
