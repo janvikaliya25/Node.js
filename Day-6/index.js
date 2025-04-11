@@ -11,22 +11,22 @@ app.set("view engine","ejs"); // 6
 app.use(express.urlencoded({extended:true})); // 7
 
 app.get("/",async(req,res)=>{ // 5
-    let Student= await schema.find({}) // 12
-    console.log(Student);
-    res.render("index",{Student})
+    // let Student= await schema.find({}) // 12
+    // console.log(Student);
+    // res.render("index",{Student})
 
-    // await schema.find({}).then((Student)=>{ // second method
-    //     res.redirect("index",{Student})
-    // })
+    await schema.find({}).then((Student)=>{ // second method
+        res.redirect("index",{Student})
+    })
 })
  
 app.post("/addData",async(req,res)=>{ // 8
-    let data= await schema.create(req.body); // 11
-    data && res.redirect("/")
+    // let data= await schema.create(req.body); // 11
+    // data && res.redirect("/")
 
-    // await schema.create(req.body).then(()=>{ // second method
-    //     res.redirect("/")
-    // })
+    await schema.create(req.body).then(()=>{ // second method
+        res.redirect("/")
+    })
 })
 
 app.get("/deleteData",async(req,res)=>{ // 12
