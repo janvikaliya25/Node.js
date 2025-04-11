@@ -1,38 +1,80 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Book</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <div><li><a href="/">Home</a></li></div>
-        <nav>
-            <ul>
-                <li><a href="/addbook">Add Book</a></li>
-            </ul>
-        </nav>
-    </header>
-    <h1>Edit Book</h1>
-    <form action="/updateData" method="post">
-        <input type="text" placeholder="Enter Book id" name="id" hidden value="<%=data.id%>">
-        <input type="text" placeholder="Enter book Url" name="image" value="<%=data.image%>">
-        <input type="text" placeholder="Enter book name" name="name" value="<%=data.name%>">
-        <input type="text" placeholder="Enter book author" name="author" value="<%=data.author%>">
-        <input type="text" placeholder="Enter book type" name="type" value="<%=data.type%>">
-        <input type="text" placeholder="Enter book price" name="price" value="<%=data.price%>">
-        <button type="submit">Update</button>
-    </form>
-</body>
-</html>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="flex flex-col sm:flex-row justify-between items-center bg-white px-4 py-2 shadow-md min-h-[80px]">
+    <!-- Logo or Home -->
+    <div class="w-40 sm:w-48">
+      <a href="/">
+        <img 
+          src="https://bookbins.b-cdn.net/wp-content/uploads/2024/04/Bookbins-2.0-Corporate-Blue-Full-Logo-600x159.png" 
+          alt="Bookbins Logo"
+          class="w-full h-12 object-contain"
+        />
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="mt-2 sm:mt-0">
+      <ul class="flex space-x-4 text-gray-700 text-sm sm:text-base font-medium">
+        <li>
+          <a href="/addbook" class="hover:text-blue-500 transition-colors">Add Book</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Title -->
+  <h1 class="text-2xl sm:text-3xl font-bold text-center mt-8 mb-6">Edit Book</h1>
+
+  <!-- Form Container -->
+  <form action="/updateData" method="post" class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-md space-y-4">
+    
+    <input type="text" name="id" hidden value="<%=data.id%>">
+
+    <div>
+      <label class="block text-sm font-medium mb-1">Book Image URL</label>
+      <input type="text" name="image" value="<%=data.image%>" placeholder="Enter book image URL"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium mb-1">Book Name</label>
+      <input type="text" name="name" value="<%=data.name%>" placeholder="Enter book name"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium mb-1">Author</label>
+      <input type="text" name="author" value="<%=data.author%>" placeholder="Enter book author"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium mb-1">Type</label>
+      <input type="text" name="type" value="<%=data.type%>" placeholder="Enter book type"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium mb-1">Price</label>
+      <input type="text" name="price" value="<%=data.price%>" placeholder="Enter book price"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
+    </div>
+
+    <button type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md font-semibold transition duration-200">
+      Update Book
+    </button>
+  </form>
+
 </body>
 </html>

@@ -1,27 +1,94 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <div><li><a href="/">Home</a></li></div>
-        <nav>
-            <ul>
-                <li><a href="/addbook">Add Book</a></li>
-            </ul>
-        </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Book</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="flex flex-col sm:flex-row justify-between items-center bg-white px-4 py-2 shadow-md min-h-[60px]">
+      <!-- Logo -->
+      <div class="w-40 sm:w-48">
+        <a href="/">
+          <img 
+            src="https://bookbins.b-cdn.net/wp-content/uploads/2024/04/Bookbins-2.0-Corporate-Blue-Full-Logo-600x159.png" 
+            alt="Bookbins Logo" 
+            class="w-full h-12 object-contain"
+          />
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="mt-2 sm:mt-0">
+        <ul class="flex space-x-4 text-gray-700 text-base font-medium">
+          <li>
+            <a
+              href="/addbook"
+              class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm sm:text-base hover:bg-blue-700 transition-colors duration-200 shadow-sm"
+            >
+              Add Book
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
-    <h1>Add Book</h1>
-    <form action="/addbook" method="post">
-        <input type="text" placeholder="Enter book Url" name="image">
-        <input type="text" placeholder="Enter book name" name="name">
-        <input type="text" placeholder="Enter book author" name="author">
-        <input type="text" placeholder="Enter book type" name="type">
-        <input type="text" placeholder="Enter book price" name="price">
-        <button type="submit">Submit</button>
-    </form>
-</body>
+
+    <!-- Main Content -->
+    <main class="flex flex-col items-center justify-center px-4 py-8">
+      <!-- Title -->
+      <h1 class="text-2xl md:text-3xl font-bold text-center mb-6">Add Book</h1>
+
+      <!-- Form -->
+      <form
+        action="/addbook"
+        method="post"
+        class="w-full max-w-xl bg-white p-6 sm:p-8 rounded-xl shadow-md grid gap-5"
+      >
+        <input
+          type="text"
+          name="image"
+          placeholder="Enter book image URL"
+          class="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter book name"
+          class="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <input
+          type="text"
+          name="author"
+          placeholder="Enter book author"
+          class="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <input
+          type="text"
+          name="type"
+          placeholder="Enter book type"
+          class="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <input
+          type="text"
+          name="price"
+          placeholder="Enter book price"
+          class="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <button
+          type="submit"
+          class="w-full bg-blue-600 text-white font-medium py-2 rounded-md hover:bg-blue-700 transition"
+        >
+          Submit
+        </button>
+      </form>
+    </main>
+  </body>
 </html>
