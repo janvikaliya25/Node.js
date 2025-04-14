@@ -37,7 +37,7 @@ app.post("/addData",multer,async(req,res)=>{ // 8
     //     res.redirect("/")
     // })
     req.body.image=req.file.path
-    await schema.create(req.body).find
+    await schema.create(req.body).
      then(()=>{
         res.redirect("/")
     })
