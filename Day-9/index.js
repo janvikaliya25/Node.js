@@ -8,6 +8,7 @@ let db=require("./config/db") // 9
 let schema=require("./model/firstSchema");  //10
 const multer=require("./middleware/multer") // 15
 const path=require("path") // 16
+const fs=require("fs") // 19
 
 app.set("view engine","ejs"); // 6
 app.use(express.urlencoded({extended:true})); // 7
@@ -22,9 +23,9 @@ app.use("/uploads",express.static(path.join(__dirname,"uploads"))) // 18
 //         res.redirect("index",{Student})
 //     })
 // })
-app.get("/", async (req, res) => {
+app.get("/", async (req, res) => { // 17,5
     await schema.find({}).then((Student) => {
-        res.render("index", { Student }) // ✅ Corrected from res.redirect to res.render
+        res.render("index", { Student }) 
     })
 })
 
@@ -36,7 +37,7 @@ app.post("/addData",multer,async(req,res)=>{ // 8
     // await schema.create(req.body).then(()=>{ // second method
     //     res.redirect("/")
     // })
-    req.body.image=req.file.path
+    req.body.image=req.file.path // 17
     await schema.create(req.body).
      then(()=>{
         res.redirect("/")
@@ -44,7 +45,9 @@ app.post("/addData",multer,async(req,res)=>{ // 8
 })
 
 app.get("/deleteData",async(req,res)=>{ // 12
-    console.log(req.query.id)
+    let singleData=await schema.findById(req.query.id); // 20
+    fs.unlinkSync(singleData.image)
+    // console.log(req.query.id)
     await schema.findByIdAndDelete(req.query.id).then(()=>{
         res.redirect("/")
     })
