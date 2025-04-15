@@ -6,11 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/updateData" method="post">
+    <form action="/updateData" method="post" enctype="multipart/form-data">
         <input type="text" name="id" value="<%=data.id%>" hidden>
         <input type="text" placeholder="Enter name" value="<%=data.name%>" name="name">
         <input type="text" placeholder="Enter surname" value="<%=data.surname%>" name="surname">
         <input type="text" placeholder="Enter city" value="<%=data.city%>" name="city">
+        <input type="file" name="image" >
+        <img src="<%=data.image%>" width="200px" alt="">
         <button>Update</button>
     </form>
 </body>

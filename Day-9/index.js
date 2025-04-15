@@ -31,12 +31,10 @@ app.get("/", async (req, res) => { // 17,5
 
  
 app.post("/addData",multer,async(req,res)=>{ // 8
-    // let data= await schema.create(req.body); // 11
-    // data && res.redirect("/")
-
-    // await schema.create(req.body).then(()=>{ // second method
+    // await schema.create(req.body).then(()=>{ // second method // 11
     //     res.redirect("/")
     // })
+
     req.body.image=req.file.path // 17
     await schema.create(req.body).
      then(()=>{
@@ -56,12 +54,23 @@ app.get("/deleteData",async(req,res)=>{ // 12
 app.get("/editData",async(req,res)=>{ // 13
     console.log(req.query.id)
     await schema.findById(req.query.id).then((data)=>{
-        res.render("edit",{data})
+        res.render("edit",{data}) 
     })
 })
 
-app.post("/updateData",async(req,res)=>{ // 14
-    await schema.findByIdAndUpdate(req.body.id,req.body).then(()=>{
+app.post("/updateData",multer,async(req,res)=>{ // 14
+    // console.log(req.body)
+    // console.log(req.file)
+
+    let singleData=await schema.findById(req.body.id); // 21
+    let img="";
+
+    req.file ? img=req.file.path : img = singleData.image
+    req.file && fs.unlinkSync(singleData.image)
+
+    req.body.image=img
+
+    await schema.findByIdAndUpdate(req.body.id,req.body).then(()=>{ // 14
         res.redirect("/")
     })
 })
