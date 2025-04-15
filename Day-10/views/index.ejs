@@ -14,5 +14,31 @@
         <!-- <input type="text" name="image"> -->
         <button type="submit">Submit</button>
     </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>City</th>
+                <th>Image</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%student.map((el,i)=>{%>
+                <tr>
+                    <td><%=el.id%></td>
+                    <td><%=el.name%></td>
+                    <td><%=el.subject%></td>
+                    <td><%=el.city%></td>
+                    <td><%=el.image%></td>
+                    <td><a href="/editData?id=<%el.id%>"><button>Edit</button></a></td>
+                    <td><a href="/deleteData?id=<%=el.id%>"><button>Delete</button></a></td>
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
 </body>
 </html>
