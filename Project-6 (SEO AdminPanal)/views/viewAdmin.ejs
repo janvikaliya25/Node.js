@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    <%- include('asidebar') %>
+    <%- include('header') %>
+
+    <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">View by page title and screen class</h5>
+            <div class="table-responsive">
+              <table class="table text-nowrap align-middle mb-0">
+                <thead>
+                  <tr class="border-2 border-bottom border-primary border-0"> 
+                    <th scope="col" class="ps-0">Page Title</th>
+                    <th scope="col" >Link</th>
+                    <th scope="col" class="text-center">Pageviews</th>
+                    <th scope="col" class="text-center">Page Value</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
