@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Movie Ticket</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <h1 class="text-3xl font-bold text-center mb-8">Book Movie Ticket</h1>
+
+
+  <form action="/addata" method="post" class="max-w-md mx-auto bg-white p-6 rounded shadow-md space-y-4 mb-12">
+    <input type="text" name="urls" placeholder="Enter image URL"
+           class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+    <input type="text" name="title" placeholder="Enter title"
+           class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+    <input type="text" name="price" placeholder="Enter price"
+           class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+    <button type="submit"
+            class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
+      Submit
+    </button>
+  </form>
+
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <% dat.map((el, i) => { %>
+      <div class="bg-white rounded shadow-md overflow-hidden">
+        <img src="<%= el.urls %>" alt="Movie Poster" class="w-full h-60 object-cover" />
+        <div class="p-4">
+          <h2 class="text-xl font-semibold mb-2"><%= el.title %></h2>
+          <p class="text-gray-700 mb-4">Price: ₹<%= el.price %></p>
+          <div class="flex justify-between">
+            <a href="/edit?id=<%= el.id %>">
+              <button class="bg-yellow-400 text-white px-4 py-1 rounded hover:bg-yellow-500">Edit</button>
+            </a>
+            <a href="/delete?id=<%= el.id %>">
+              <button class="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600">Delete</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>

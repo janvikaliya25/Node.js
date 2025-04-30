@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>update data</h1>
+    <form action="/update" method="post">
+        <input placeholder="enter the img url" name="id" value="<%=dat._id%>" hidden>
+        <input placeholder="enter the img url" name="url" value="<%=dat.urls%>">
+        <input placeholder="enter the title" name="title" value="<%=dat.title%>">
+        <input placeholder="enter the price" name="price" value="<%=dat.price%>">
+        <button type="submit">update </button>
+    </form>
+</body>
+</html>
