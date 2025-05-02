@@ -3,9 +3,11 @@ const multer = require('../middleware/multer');
 
 const route = express.Router();
 const ctl = require('../controller/ctl');
+// const passport = require('passport');
+const passport=require("../middleware/passport")
 
 route.get("/",ctl.login)
-route.post("/login",ctl.loginadmin);
+route.post("/login",passport.authenticate("local",{failureRedirect:"/"}),ctl.loginadmin);
 route.get("/logout",ctl.logout);
 route.get('/dashboard', ctl.dashboard);
 route.get('/addAdmin', ctl.addAdmin);

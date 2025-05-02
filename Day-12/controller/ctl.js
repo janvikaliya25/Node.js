@@ -7,39 +7,19 @@ module.exports.login = (req, res) => {
 }
 
 module.exports.loginadmin = async (req, res) => {
-    let admin = await fSchema.findOne({ email: req.body.email });
-    if (!admin) {
-        return res.redirect("/")
-    }
-    if (req.body.password = admin.password) {
-        res.cookie("admin", admin)
-        res.redirect("/dashboard")
-    } 
-    else {
-        res.redirect("/")
-    }
+         res.redirect("/")
 }
 
 module.exports.logout = (req, res) => {
-    res.clearCookie('admin')
     res.redirect("/")
 }
 
 module.exports.dashboard = (req, res) => {
-    if (req.cookies.admin) {
         res.render("dashboard")
-    }
-    else {
-        res.redirect("/")
-    }
 }
+
 module.exports.addAdmin = (req, res) => {
-    if (req.cookies.admin) {
         res.render("addAdmin")
-    }
-    else {
-        res.redirect("/")
-    }
 }
 
 module.exports.addAdmin = (req, res) => {
@@ -47,14 +27,9 @@ module.exports.addAdmin = (req, res) => {
 }
 
 module.exports.viewAdmin = async (req, res) => {
-    if (req.cookies.admin) {
         await fSchema.find({}).then((data) => {
             res.render("table", { data });
         })
-    }
-    else {
-        res.redirect('/')
-    }
 
 }
 

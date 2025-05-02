@@ -1,8 +1,8 @@
 const { Schema } = require("mongoose");
 const passport=require("passport");
-const localSt=require("passport-local").Strategy
+const LocalStrategy = require('passport-local').Strategy;
 
-passport.use("local",new localSt(
+passport.use("local",new LocalStrategy(
     {usernameField : "email"},
     async (email,password,done)=>{
         let admin=await Schema.findOne({email:email});
