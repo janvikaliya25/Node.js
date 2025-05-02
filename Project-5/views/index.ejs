@@ -10,21 +10,6 @@
 <body class="bg-gray-100 p-6">
   <h1 class="text-3xl font-bold text-center mb-8">Book Movie Ticket</h1>
 
-
-  <form action="/addata" method="post" class="max-w-md mx-auto bg-white p-6 rounded shadow-md space-y-4 mb-12">
-    <input type="text" name="urls" placeholder="Enter image URL"
-           class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
-    <input type="text" name="title" placeholder="Enter title"
-           class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
-    <input type="text" name="price" placeholder="Enter price"
-           class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
-    <button type="submit"
-            class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
-      Submit
-    </button>
-  </form>
-
-
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     <% dat.map((el, i) => { %>
       <div class="bg-white rounded shadow-md overflow-hidden">

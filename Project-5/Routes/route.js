@@ -4,7 +4,7 @@ const ctl = require("../Controller/ctl")
 
 
 route.get("/",ctl.homepage)
-route.post("/addata",ctl.addata)
+route.post("/addData",ctl.addData)
 route.get("/delete",ctl.delete)
 route.get("/edit",ctl.edit)
 route.post("/update",ctl.update)

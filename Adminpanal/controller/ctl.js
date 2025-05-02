@@ -1,28 +1,28 @@
 
 const schema = require('../model/schema');
 
-// module.exports.login=(req,res)=>{
-//     res.render("login")
-// }
+module.exports.login=(req,res)=>{
+    res.render("login")
+}
 
-// module.exports.loginpage=async(req,res)=>{
-//     console.log(req.body);
-//     let admin= await schema.findOne({email:req.body.email});
+module.exports.loginpage=async(req,res)=>{
+    console.log(req.body);
+    let admin= await schema.findOne({email:req.body.email});
 
-//     if(admin){
-//         if(req.body.password == admin.password){
-//             res.cookie("admin",admin)
+    if(admin){
+        if(req.body.password == admin.password){
+            res.cookie("admin",admin)
 
-//             res.redirect("/index")
-//         }
-//         else{
-//             res.redirect("/")
-//         }
-//     }
-//     else{
-//         res.redirect("/")
-//     }
-// }
+            res.redirect("/index")
+        }
+        else{
+            res.redirect("/")
+        }
+    }
+    else{
+        res.redirect("/")
+    }
+}
 // module.exports.indexpage=(req,res)=>{
 //     res.render("index")
 //     // if(req.cookies.admin){
@@ -40,10 +40,17 @@ const schema = require('../model/schema');
 // }
 module.exports.dashboard = (req,res)=>{
     res.render("dashboard")
+     if(req.cookies.admin){
+       res.render("index")
+    }  
+    else{
+       res.redirect("/")
+    }
 }
 module.exports.addadmin =(req,res)=>{
     res.render("addAdmin")
 }
+
 module.exports.viewadmin = async(req,res)=>{
     await schema.find({})
     .then((dat)=>{

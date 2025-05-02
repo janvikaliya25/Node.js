@@ -6,7 +6,7 @@ module.exports.homepage =async(req,res)=>{
         res.render("index",{dat})
     })
 }
-module.exports.addata = async(req,res)=>{
+module.exports.addData = async(req,res)=>{
     console.log(req.body)
     await schema.create(req.body)
     .then(()=>{

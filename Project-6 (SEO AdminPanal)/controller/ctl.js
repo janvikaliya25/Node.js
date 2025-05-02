@@ -1,6 +1,30 @@
 
-
 const schema = require("../model/schema");
+
+
+module.exports.login=(req,res)=>{
+    res.render("/")
+}
+
+module.exports.loginAdmin=async(req,res)=>{
+    let admin= await schema.findOne({email:req.body.email});
+
+    if(!admin){
+        res.redirect("/")
+    }
+    if (req.body.password = admin.password) {
+        res.cookie("admin", admin)
+        res.redirect("/dashboard")
+    }
+    else {
+        res.redirect("/")
+    }
+}
+
+module.exports.logout = (req, res) => {
+    res.clearCookie('admin')
+    res.redirect("/")
+}
 
 module.exports.dashboard = (req, res) => {
     res.render("dashboard");
@@ -33,8 +57,7 @@ module.exports.addAdmin = async (req, res) => {
 
 module.exports.delete = async (req, res) => {
     try {
-        console.log(req.body.id);
-        await schema.findByIdAndDelete(req.body.id);
+        await schema.findByIdAndDelete(req.query.id);
         res.redirect("/viewAdmin");
     } catch (err) {
         console.error(err);
@@ -44,7 +67,7 @@ module.exports.delete = async (req, res) => {
 
 module.exports.edit = async (req, res) => {
     try {
-        const dat = await schema.findById(req.body.id);
+        const dat = await schema.findById(req.query.id);
         res.render("update", { dat });  
     } catch (err) {
         console.error(err);
