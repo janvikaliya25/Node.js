@@ -1,11 +1,11 @@
-const { Schema } = require("mongoose");
 const passport=require("passport");
 const LocalStrategy = require('passport-local').Strategy;
+const  Schema  = require("../modal/fschema");
 
 passport.use("local",new LocalStrategy(
     {usernameField : "email"},
     async (email,password,done)=>{
-        let admin=await Schema.findOne({email:email});
+        let admin=await Schema.findOne({email:email})
         if(admin){
             if(admin.password == password){
                 return done(null,admin)
@@ -25,7 +25,7 @@ passport.serializeUser((admin,done)=>{
 })
 
 passport.deserializeUser(async(adminId,done)=>{
-    let admin = await Schema.findById(adminId);
+    let admin = await schema.findById(adminId);
     if(admin){
         return done(null,admin)
     }else{
@@ -33,4 +33,28 @@ passport.deserializeUser(async(adminId,done)=>{
     }
 })
 
+passport.checkAuth = (req,res,next)=>{
+    if(req.isAuthenticated()){
+        next()
+    }else{
+        res.redirect("/")
+    }
+}
+
+
+
 module.exports=passport;
+
+// const schema=require("mongoose");
+// const passport=require("passport");
+// const LocalStrategy=require("passport-local").Strategy;
+
+// passport.use("local", new LocalStrategy)(
+//     {usernameField : "email"},
+//     async (email , password ,done)=>{
+//         let admin= await schema.findOne({email:email})
+//         if(admin){
+            
+//         }
+//     }
+// )

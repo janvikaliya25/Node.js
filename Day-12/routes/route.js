@@ -9,8 +9,9 @@ const passport=require("../middleware/passport")
 route.get("/",ctl.login)
 route.post("/login",passport.authenticate("local",{failureRedirect:"/"}),ctl.loginadmin);
 route.get("/logout",ctl.logout);
-route.get('/dashboard', ctl.dashboard);
+route.get('/dashboard',passport.checkAuth, ctl.dashboard);
 route.get('/addAdmin', ctl.addAdmin);
+
 route.get('/table', ctl.viewAdmin);
 route.post('/addrecord',multer, ctl.add);
 route.get("/deldata",ctl.delete);

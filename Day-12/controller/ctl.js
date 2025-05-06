@@ -3,11 +3,11 @@ const fs = require('fs');
 
 
 module.exports.login = (req, res) => {
-    res.render("login");
+    res.render("dashboard");
 }
 
 module.exports.loginadmin = async (req, res) => {
-         res.redirect("/")
+    res.redirect("/")
 }
 
 module.exports.logout = (req, res) => {
@@ -15,11 +15,11 @@ module.exports.logout = (req, res) => {
 }
 
 module.exports.dashboard = (req, res) => {
-        res.render("dashboard")
+    res.render("dashboard")
 }
 
 module.exports.addAdmin = (req, res) => {
-        res.render("addAdmin")
+    res.render("addAdmin")
 }
 
 module.exports.addAdmin = (req, res) => {
@@ -27,9 +27,9 @@ module.exports.addAdmin = (req, res) => {
 }
 
 module.exports.viewAdmin = async (req, res) => {
-        await fSchema.find({}).then((data) => {
-            res.render("table", { data });
-        })
+    await fSchema.find({}).then((data) => {
+        res.render("table", { data });
+    })
 
 }
 

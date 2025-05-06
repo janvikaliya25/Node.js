@@ -7,8 +7,8 @@ const app = express();
 
 const db = require("./config/db");
 const cookie = require("cookie-parser")
-const passport=require("passport");
 const session=require("express-session");
+const passport=require("passport");
 
 app.set('view engine', 'ejs');
 
@@ -24,8 +24,8 @@ app.use(session({
     cookie: {maxAge:100*100*60}
 }));
 
-app.use(passport.session);
-app.use(passport.initialize);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/",require('./routes/route'));
 
