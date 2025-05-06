@@ -3,11 +3,15 @@ const fs = require('fs');
 
 
 module.exports.login = (req, res) => {
-    res.render("dashboard");
+    res.render("login");
+}
+
+module.exports.profile = (req, res) => {
+    res.render("profile")
 }
 
 module.exports.loginadmin = async (req, res) => {
-    res.redirect("/")
+    res.redirect("/dashboard")
 }
 
 module.exports.logout = (req, res) => {

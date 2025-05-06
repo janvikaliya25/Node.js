@@ -25,7 +25,7 @@ passport.serializeUser((admin,done)=>{
 })
 
 passport.deserializeUser(async(adminId,done)=>{
-    let admin = await schema.findById(adminId);
+    let admin = await Schema.findById(adminId);
     if(admin){
         return done(null,admin)
     }else{
@@ -35,6 +35,7 @@ passport.deserializeUser(async(adminId,done)=>{
 
 passport.checkAuth = (req,res,next)=>{
     if(req.isAuthenticated()){
+        res.locals.admin=req.user
         next()
     }else{
         res.redirect("/")
