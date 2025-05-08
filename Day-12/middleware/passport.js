@@ -42,20 +42,6 @@ passport.checkAuth = (req,res,next)=>{
     }
 }
 
-
+ 
 
 module.exports=passport;
-
-// const schema=require("mongoose");
-// const passport=require("passport");
-// const LocalStrategy=require("passport-local").Strategy;
-
-// passport.use("local", new LocalStrategy)(
-//     {usernameField : "email"},
-//     async (email , password ,done)=>{
-//         let admin= await schema.findOne({email:email})
-//         if(admin){
-            
-//         }
-//     }
-// )
