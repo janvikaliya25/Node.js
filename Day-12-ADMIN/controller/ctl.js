@@ -1,5 +1,7 @@
+const { scheduler } = require("timers/promises");
 const fSchema = require("../modal/fschema")
 const fs = require('fs');
+const { Schema } = require("mongoose");
 
 
 module.exports.login = (req, res) => {
@@ -74,4 +76,30 @@ module.exports.update = async (req, res) => {
     })
 }
 
+module.exports.changepassword=(req,res)=>{
+    res.render("changepassword")
+}
 
+module.exports.changePass=async(req,res)=>{
+    let admin=req.user;
+    console.log(admin)
+    if(admin.password == req.body.oldpass){
+        if(req.body.oldpass != req.body.newpass){
+            if(req.body.newpass == req.body.confirmpass){
+                await fSchema.findByIdAndUpdate(admin.id,{password:req.body.newpass}).then(()=>{
+                    res.redirect("/logout");
+                })
+            }
+            else{
+                // req.flash("err","New password and confirm password has to be same !")
+                res.redirect("/changepassword")
+            }
+        } 
+        else{
+            res.redirect("/changepassword")
+        }
+    }
+    else{
+        res.redirect("/changepassword")
+    }
+}

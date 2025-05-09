@@ -17,5 +17,7 @@ route.post('/addrecord', multer, ctl.add);
 route.get("/deldata", ctl.delete);
 route.get("/editdata", ctl.edit);
 route.post("/updaterec", multer, ctl.update);
+route.get("/changepassword",ctl.changepassword);
+route.post("/changePass",ctl.changePass);
 
 module.exports = route;
