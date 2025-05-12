@@ -102,4 +102,4 @@ module.exports.changePass=async(req,res)=>{
     else{
         res.redirect("/changepassword")
     }
-}
+} 
