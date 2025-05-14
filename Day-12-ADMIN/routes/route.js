@@ -3,7 +3,6 @@ const multer = require('../middleware/multer');
 
 const route = express.Router();
 const ctl = require('../controller/ctl');
-// const passport = require('passport');
 const passport = require("../middleware/passport")
 
 route.get("/", ctl.login)
@@ -19,5 +18,8 @@ route.get("/editdata", ctl.edit);
 route.post("/updaterec", multer, ctl.update);
 route.get("/changepassword",ctl.changepassword);
 route.post("/changePass",ctl.changePass);
+route.get("/forgotpass",ctl.forgotpass)
+route.post("/recoverPass",ctl.recoverPass)
+route.post("/verifyPass",ctl.verifyPass)
 
 module.exports = route;

@@ -2,6 +2,7 @@ const { scheduler } = require("timers/promises");
 const fSchema = require("../modal/fschema")
 const fs = require('fs');
 const { Schema } = require("mongoose");
+const mailer = require("../middleware/mailer")
 
 
 module.exports.login = (req, res) => {
@@ -91,7 +92,6 @@ module.exports.changePass=async(req,res)=>{
                 })
             }
             else{
-                // req.flash("err","New password and confirm password has to be same !")
                 res.redirect("/changepassword")
             }
         } 
@@ -103,3 +103,48 @@ module.exports.changePass=async(req,res)=>{
         res.redirect("/changepassword")
     }
 } 
+
+module.exports.forgotpass=(req,res)=>{
+    res.render("forgotpass")
+}
+
+module.exports.recoverPass=async(req,res)=>{
+    let admin = await fSchema.findOne({email:req.body.email})
+    console.log(admin)
+    if(!admin){
+        return res.redirect("/")
+    }
+
+    let otp = Math.floor(Math.random()*100000+900000)
+    console.log(otp)
+    mailer.sendOTP(req.body.email,otp);
+    req.session.otp=otp;
+    req.session.adminData=admin;
+    res.redirect("/verifypass")
+}
+
+module.exports.verify=(req,res)=>{
+    res.redirect("vefify")
+}
+
+
+module.exports.verifyPass=async(req,res)=>{
+    let otp = req.session.otp;
+    let admin = req.session.adminData;
+    console.log(otp)
+    console.log(admin)
+
+    if(otp == req.body.otp){
+        if(req.body.newpass == req.body.confirmpass){
+            await fSchema.findByIdAndUpdate(admin._id,{password:req.body.newpass}).then(()=>{
+                res.redirect("/")
+            })
+        }
+        else{
+            res.redirect("/")
+        }
+    }
+    else{
+         res.redirect("/")
+    }
+}

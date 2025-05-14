@@ -31,6 +31,7 @@ app.use(connectFlash())
 app.use(flash.setFlash)
 
 app.use("/",require('./routes/route'));
+app.use("/category",require("./routes/category"))
 
 app.listen(port , (err)=>
 err ? console.log(err) : console.log(`Your server is created ${port}`)

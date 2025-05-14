@@ -8,7 +8,7 @@ const Storage = multer.diskStorage({
         cb(null,file.fieldname + "-" + Date.now());
     }
 })
-
+ 
 const upload = multer({storage: Storage}).single("profile");
 
 module.exports = upload;
