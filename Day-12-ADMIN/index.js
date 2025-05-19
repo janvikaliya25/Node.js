@@ -18,7 +18,7 @@ app.use("/uploads",express.static(path.join(__dirname, "uploads")));
 app.use(cookie());
 app.use(session({
     name:"local",
-    secret: 'SEO',
+    secret: 'SEO', 
     resave: true,
     saveUninitialized: false,
     cookie: {maxAge:100*100*60}
@@ -32,6 +32,8 @@ app.use(flash.setFlash)
 
 app.use("/",require('./routes/route'));
 app.use("/category",require("./routes/category"))
+app.use("/subCategory",require("./routes/subCategory")) 
+app.use("/product",require("./routes/product"))
 
 app.listen(port , (err)=>
 err ? console.log(err) : console.log(`Your server is created ${port}`)

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViewAdmin</title>
+    <link rel="shortcut icon" type="image/png" href="../assets/images/logos/seodashlogo.png" />
+    <link rel="stylesheet" href="../assets/css/styles.min.css">
+</head>
+
+<body>
+    <%- include("header") %>
+        <%- include("aside") %>
+
+            <div style="margin-left: 18%;">
+                <table class="table text-nowrap align-middle mb-0">
+                    <thead>
+                        <tr class="border-2 border-bottom border-primary">
+                            <th scope="col" class="text-center">Id</th>
+                            <th scope="col" class="text-center">Name</th>
+                            <th scope="col" class="text-center">Image</th>
+                            <th scope="col" class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.map((e, i)=> { %>
+                            <tr style="text-align: center;">
+                                <td>
+                                    <%= i + 1 %>
+                                </td>
+                                <td>
+                                    <%= e.catname %>
+                                </td>
+                                <td>
+                                    <img src="/<%=e.image %>" width="70px" alt="No Image">
+                                </td>
+                                <td>
+                                    <a href="/editdata?id=<%= e._id %>" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="/deldata?id=<%= e._id %>" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+</body>
+
+</html>

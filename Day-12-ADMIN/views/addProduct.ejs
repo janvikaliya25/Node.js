@@ -28,18 +28,34 @@
                                             class="text-nowrap logo-img text-center d-block py-3 w-100">
                                             <img src="../assets/images/logos/logo-light.svg" alt="">
                                         </a>
-                                        <h3 class="text-center">Category Info</h3>
+                                        <h3 class="text-center">Product Info</h3>
 
-                                        <form action="/category/addCat" enctype="multipart/form-data" method="POST" >
+                                        <form action="/product/addProduct" enctype="multipart/form-data" method="POST">
                                             <div class="mb-3">
-                                                <label for="name" class="form-label">Catagory Name</label>
-                                                <input type="text" name="catname" class="form-control" id="name"
+                                                <label for="name" class="form-label">Product Name</label>
+                                                <input type="text" name="productName" class="form-control" id="name"
                                                     placeholder="Name Here">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="profile" class="form-label">Image</label>
-                                                <input type="file" name="image" class="form-control" id="profile"
-                                                    placeholder="Image">
+                                                <label for="name" class="form-label">Product Price</label>
+                                                <input type="text" name="productPrice" class="form-control" id="name"
+                                                    placeholder="Name Here">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="name" class="form-label">Product Image</label>
+                                                <input type="file" name="image" class="form-control" id="name"
+                                                    placeholder="Name Here">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="name" class="form-label">Sub
+                                                    Category Name</label>
+                                                <select name="SubCategoryId">
+                                                    <%dat.map((e,i)=>{%>
+                                                        <option value="<%=e.id%>">
+                                                            <%=e.subCatame%>
+                                                        </option>
+                                                        <%})%>
+                                                </select>
                                             </div>
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
@@ -49,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
             <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
             <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>

@@ -20,6 +20,6 @@ route.get("/changepassword",ctl.changepassword);
 route.post("/changePass",ctl.changePass);
 route.get("/forgotpass",ctl.forgotpass)
 route.post("/recoverPass",ctl.recoverPass)
-route.post("/verifyPass",ctl.verifyPass)
-
+route.post("/verifyPass",ctl.verifyPass) 
+ 
 module.exports = route;
