@@ -17,18 +17,20 @@ module.exports.addProduct = async (req, res) => {
     const image = req.file.path;
     req.body.image = image;
     await ProSchema.create(req.body).then(() => {
-        res.redirect("/product/addProduct")
+        res.redirect("/product/addPro")
     })
 }
 
 module.exports.viewProduct = async (req, res) => {
-    // await subCatSchema.find({})
-    // .populate("categoryId")
-    // .then((dat)=>{
-    //     res.render("viewSubCategory",{dat})
-    // })
-
-    await ProSchema.find({}).then((dat)=>{
-        res.render("viewProduct",{dat})
-    })
-}
+    await ProSchema.find({})
+        .populate({
+            path: "SubCategoryId",
+            populate: {
+                path: "categoryId"
+            }
+        }) 
+        .then((dat) => {
+            console.log(dat);
+            res.render("viewProduct", { dat });
+        })
+};

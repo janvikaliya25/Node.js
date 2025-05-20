@@ -20,12 +20,14 @@
                             <th scope="col" class="text-center">Id</th>
                             <th scope="col" class="text-center">Name</th>
                             <th scope="col" class="text-center">Price</th>
+                            <th scope="col" class="text-center">Sub Category Name</th>
+                            <th scope="col" class="text-center">Category Name</th>
                             <th scope="col" class="text-center">Image</th>
                             <th scope="col" class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <% data.map((e, i)=> { %>
+                        <% dat.map((e, i)=> { %>
                             <tr style="text-align: center;">
                                 <td>
                                     <%= i + 1 %>
@@ -35,6 +37,12 @@
                                 </td>
                                 <td>
                                     <%= e.productPrice %>
+                                </td>
+                                <td>
+                                    <%= e.SubCategoryId.subCatname%>
+                                </td>
+                                <td>
+                                    <%= e.SubCategoryId.categoryId.catname%>
                                 </td>
                                 <td>
                                     <img src="/<%=e.image %>" width="70px" alt="No Image">

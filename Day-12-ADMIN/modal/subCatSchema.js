@@ -8,9 +8,9 @@ const subCategorySchema = mongoose.Schema({
   categoryId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'categories',
-    required: true
+    required: true 
   }
-});
+}); 
 
 const subCatSchema = mongoose.model("subCategories",subCategorySchema);
 module.exports = subCatSchema;  

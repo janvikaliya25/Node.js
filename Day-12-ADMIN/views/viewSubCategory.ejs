@@ -25,13 +25,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% dat.map((e, i)=> { %>
+                        <% dat.map((e, i)=>{%>
                             <tr style="text-align: center;">
                                 <td>
                                     <%= i + 1 %>
                                 </td>
                                 <td>
-                                    <%= e.subCatname %>
+                                    <%=e.subCatname%>
                                 </td>
                                 <td>
                                     <%=e.categoryId.catname%>
@@ -44,7 +44,7 @@
                                     <a href="/deldata?id=<%= e._id %>" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
-                            <% }) %>
+                            <%})%>
                     </tbody>
                 </table>
             </div>
