@@ -17,4 +17,4 @@ app.use("/",require("./Routes/route"))
 
 app.listen(port,(err)=>{
     err?console.log(err):console.log(`Your server is created ${port}`)
-}) 
+})
