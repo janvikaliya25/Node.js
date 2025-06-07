@@ -11,7 +11,7 @@ const schema = mongoose.Schema({
     },
     phone: {
         type: String,
-        required: true
+        required: true 
     },
     password: {
         type: String,

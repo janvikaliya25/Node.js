@@ -10,8 +10,9 @@ const auth = (req,res,next)=>{
     console.log(token)
     let decode = jwt.verify(token,"user")
     console.log(decode)
+    console.log(new Date(decode.exp*1000))
     req.user = decode.admin
-    next()
+    next() 
 }
 
 module.exports = auth
