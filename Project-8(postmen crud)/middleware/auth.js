@@ -1,18 +1,27 @@
-const jwt = require("jsonwebtoken")
 
-const auth = (req,res,next)=>{
-    let token = req.header("Authorization")
+const jwt = require("jsonwebtoken");
 
-    if(!token){
-        return res.status(404).json({msg:"token is not found..!!"})
-    }
+const auth = (req, res, next) => {
+  let token = req.header("Authorization");
 
-    console.log(token)
-    let decode = jwt.verify(token,"user")
-    console.log(decode)
-    console.log(new Date(decode.exp*1000))
-    req.user = decode.admin
-    next() 
-}
+  if (!token) {
+    return res.status(401).json({ msg: "Token is required." });
+  }
 
-module.exports = auth
+  if (token.startsWith("Bearer ")) {
+    token = token.split(" ")[1];
+  }
+
+  try {
+    let decode = jwt.verify(token, "user");
+    console.log("Decoded Payload:", decode);
+    console.log("Expiry Date:", new Date(decode.exp * 1000));
+
+    req.user = decode;
+    next();
+  } catch (error) {
+    return res.status(401).json({ msg: "Invalid or expired token." });
+  }
+};
+
+module.exports = auth;
