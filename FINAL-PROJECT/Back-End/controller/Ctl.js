@@ -1,7 +1,7 @@
-
+ 
 const schema = require("../model/schema")
 const bcrypt = require("bcryptjs")
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken") 
 
 module.exports.register = async (req, res) => {
     let admin = await schema.findOne({ email: req.body.email })

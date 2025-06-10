@@ -17,7 +17,7 @@ const schema = mongoose.Schema({
         type:String,
         required:true
     }
-})
+}) 
 
 const firstSchema = mongoose.model("single",schema)
 

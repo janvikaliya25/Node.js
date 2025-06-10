@@ -11,6 +11,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/',require("./routes/route"))
+app.use("/ProductForm",require("./routes/product"))
 
 app.listen(port,(err)=>{
     err?console.log(err):console.log(`Yout server is Started ${port}`)
